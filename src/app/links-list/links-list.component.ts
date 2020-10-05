@@ -1,11 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-
+import {Apollo} from 'apollo-angular';
+import gql from 'graphql-tag';
+import {Observable} from 'rxjs';
+import {map, tap} from 'rxjs/operators';
+const FEED_QUERY = gql`
+{
+  feed {
+    links {
+      id
+      createdAt
+      url
+      description
+    }
+  }
+}
+`
 @Component({
   selector: 'app-links-list',
   templateUrl: './links-list.component.html',
   styleUrls: ['./links-list.component.scss']
 })
+
 export class LinksListComponent implements OnInit {
+  
+
+  data: Observable<any>;
+  loading: any;
+  currentUser: any;
+  constructor(private apollo: Apollo) {}
    linksToRender: any = [
     {
       id: '1',
@@ -18,9 +40,13 @@ export class LinksListComponent implements OnInit {
       url: 'https://www.apollographql.com/docs/react/',
     },
   ]
-  constructor() { }
 
-  ngOnInit(): void {
+
+  ngOnInit(): void { 
+    this.data = this.apollo
+    .watchQuery({query: FEED_QUERY})
+    .valueChanges.pipe(
+      tap(d=> console.log(d)),
+      map(({data}) => data));
   }
-
 }

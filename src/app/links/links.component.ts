@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class LinksComponent implements OnInit {
 
   constructor() { }
-  @Input() props: any;
+  @Input() link: any;
   ngOnInit(): void {
   }
 
