@@ -46,7 +46,7 @@ export class LinksListComponent implements OnInit {
     this.data = this.apollo
     .watchQuery({query: FEED_QUERY})
     .valueChanges.pipe(
-      tap(d=> console.log(d)),
-      map(({data}) => data));
+      tap(d=> console.log(d.data)),
+      map(({data}) => data.feed.links));
   }
 }
