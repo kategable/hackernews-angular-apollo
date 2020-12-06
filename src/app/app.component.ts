@@ -1,5 +1,6 @@
+import {Apollo} from 'apollo-angular';
 import { Component } from '@angular/core';
-import { Apollo } from 'apollo-angular';
+
 
 @Component({
   selector: 'app-root',

@@ -1,6 +1,7 @@
+import {Apollo, gql} from 'apollo-angular';
 import { Component, OnInit } from '@angular/core';
-import { Apollo } from 'apollo-angular';
-import gql from 'graphql-tag';
+
+
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
