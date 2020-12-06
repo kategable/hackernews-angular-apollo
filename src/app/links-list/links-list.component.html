@@ -1,3 +1,5 @@
-<div *ngFor="let link of data | async">
+<div *ngFor="let link of (data$ | async | select: 'feed')?.links">
     <app-links [link]="link"></app-links>
 </div>
+
+ 
