@@ -1,5 +1,4 @@
-<div *ngFor="let link of (data$ | async).data.feed.links">
+<div *ngFor="let link of (links$ | async)">
     <app-links [link]="link"></app-links>
 </div>
 
- 

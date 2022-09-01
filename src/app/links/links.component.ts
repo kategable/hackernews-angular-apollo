@@ -5,11 +5,8 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './links.component.html',
   styleUrls: ['./links.component.scss']
 })
-export class LinksComponent implements OnInit {
+export class LinksComponent  {
 
   constructor() { }
   @Input() link: any;
-  ngOnInit(): void {
-  }
-
 }
